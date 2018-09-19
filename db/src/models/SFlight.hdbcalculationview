@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SFlight" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="SFlight"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SFLIGHT">
+    <resourceUri>SFLIGHT</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT">
+        <descriptions defaultDescription="MANDT"/>
+      </viewAttribute>
+      <viewAttribute id="CARRID">
+        <descriptions defaultDescription="CARRID"/>
+      </viewAttribute>
+      <viewAttribute id="CONNID">
+        <descriptions defaultDescription="CONNID"/>
+      </viewAttribute>
+      <viewAttribute id="FLDATE">
+        <descriptions defaultDescription="FLDATE"/>
+      </viewAttribute>
+      <viewAttribute id="PRICE">
+        <descriptions defaultDescription="PRICE"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENCY">
+        <descriptions defaultDescription="CURRENCY"/>
+      </viewAttribute>
+      <viewAttribute id="PLANETYPE">
+        <descriptions defaultDescription="PLANETYPE"/>
+      </viewAttribute>
+      <viewAttribute id="SEATSMAX">
+        <descriptions defaultDescription="SEATSMAX"/>
+      </viewAttribute>
+      <viewAttribute id="SEATSOCC">
+        <descriptions defaultDescription="SEATSOCC"/>
+      </viewAttribute>
+      <viewAttribute id="PAYMENTSUM">
+        <descriptions defaultDescription="PAYMENTSUM"/>
+      </viewAttribute>
+      <viewAttribute id="SEATSMAX_B">
+        <descriptions defaultDescription="SEATSMAX_B"/>
+      </viewAttribute>
+      <viewAttribute id="SEATSOCC_B">
+        <descriptions defaultDescription="SEATSOCC_B"/>
+      </viewAttribute>
+      <viewAttribute id="SEATSMAX_F">
+        <descriptions defaultDescription="SEATSMAX_F"/>
+      </viewAttribute>
+      <viewAttribute id="SEATSOCC_F">
+        <descriptions defaultDescription="SEATSOCC_F"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SFLIGHT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="MANDT_2" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Projection_1"/>
+    </attribute>
+    <attribute id="CARRID_2" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="Projection_1"/>
+    </attribute>
+    <attribute id="CONNID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONNID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CONNID"/>
+    </attribute>
+    <attribute id="FLDATE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLDATE"/>
+      <keyMapping columnObjectName="Projection_1"/>
+    </attribute>
+    <attribute id="CURRENCY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="PLANETYPE_1" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANETYPE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PLANETYPE"/>
+    </attribute>
+    <attribute id="CARRID$local">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CARRID"/>
+    </attribute>
+    <attribute id="PLANETYPE$local">
+      <descriptions defaultDescription="PLANETYPE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PLANETYPE"/>
+    </attribute>
+    <attribute id="FLDATE$local">
+      <descriptions defaultDescription="FLDATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="FLDATE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="PRICE" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PRICE"/>
+      <measureMapping columnObjectName="Projection_1" columnName="PRICE"/>
+    </measure>
+    <measure id="SEATSMAX_1" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSMAX"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSMAX"/>
+    </measure>
+    <measure id="SEATSOCC" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSOCC"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSOCC"/>
+    </measure>
+    <measure id="PAYMENTSUM" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PAYMENTSUM"/>
+      <measureMapping columnObjectName="Projection_1" columnName="PAYMENTSUM"/>
+    </measure>
+    <measure id="SEATSMAX_B_1" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSMAX_B"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSMAX_B"/>
+    </measure>
+    <measure id="SEATSOCC_B" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSOCC_B"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSOCC_B"/>
+    </measure>
+    <measure id="SEATSMAX_F_1" order="13" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSMAX_F"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSMAX_F"/>
+    </measure>
+    <measure id="SEATSOCC_F" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSOCC_F"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSOCC_F"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+
+  <sharedDimensions>
+
+    <logicalJoin associatedObjectUri="Carrier">
+
+      <attributes>
+
+        <attributeRef>CARRID$local</attributeRef>
+
+      </attributes>
+
+      <associatedAttributeNames>
+
+        <attributeName>CARRID</attributeName>
+
+      </associatedAttributeNames>
+
+      <properties cardinality="CN_N" joinType="referential" joinOperator="Equal"/>
+
+      <associatedAttributeFeatures>
+
+        <attributeReference alias="MANDT_1" attributeName="MANDT"/>
+
+        <attributeReference alias="CARRID_1" attributeName="CARRID"/>
+
+      </associatedAttributeFeatures>
+
+    </logicalJoin>
+
+    <logicalJoin associatedObjectUri="Planes">
+
+      <attributes>
+
+        <attributeRef>PLANETYPE$local</attributeRef>
+
+      </attributes>
+
+      <associatedAttributeNames>
+
+        <attributeName>PLANETYPE</attributeName>
+
+      </associatedAttributeNames>
+
+      <properties cardinality="CN_N" joinType="referential" joinOperator="Equal"/>
+
+      <associatedAttributeFeatures/>
+
+    </logicalJoin>
+
+    <logicalJoin associatedObjectUri="Dates">
+
+      <attributes>
+
+        <attributeRef>FLDATE$local</attributeRef>
+
+      </attributes>
+
+      <associatedAttributeNames>
+
+        <attributeName>DATE_SAP</attributeName>
+
+      </associatedAttributeNames>
+
+      <properties cardinality="CN_N" joinType="referential" joinOperator="Equal"/>
+
+      <associatedAttributeFeatures/>
+
+    </logicalJoin>
+
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="232"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Carrier" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Planes" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Dates" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="920" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

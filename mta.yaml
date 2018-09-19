@@ -1,0 +1,81 @@
+ID: ChickenWings
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: db
+   type: hdb
+   path: db
+   requires:
+    - name: hdi_db_2
+      properties:
+        TARGET_CONTAINER: ~{hdi-container-name_2}
+
+
+ 
+
+
+    - name: CROSS_SCHEMA_SYS_BI
+      group: SERVICE_REPLACEMENTS
+
+      properties:
+        key: ServiceName_1
+        service: ~{the-service-name}
+                          
+
+
+
+    - name: CHICKEN_WINGS
+      group: SERVICE_REPLACEMENTS
+
+      properties:
+        key: ServiceName_2
+        service: ~{the-service-name}
+                          
+
+
+
+    - name: SFLIGHT
+      group: SERVICE_REPLACEMENTS
+
+      properties:
+        key: ServiceName_3
+        service: ~{the-service-name}
+                          
+
+
+resources:
+ - name: hdi_db
+   parameters:
+      config:
+         schema: ChickenWingz
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
+ - name: hdi_db_2
+   parameters:
+      config:
+         schema: ChickenWingz
+   properties:
+      hdi-container-name_2: ${service-name}
+   type: com.sap.xs.hdi-container
+
+
+ - name: CROSS_SCHEMA_SYS_BI
+   properties:
+      the-service-name: ${service-name}
+   type: org.cloudfoundry.existing-service
+
+
+ - name: CHICKEN_WINGS
+   properties:
+      the-service-name: ${service-name}
+   type: org.cloudfoundry.existing-service
+
+
+ - name: SFLIGHT
+   properties:
+      the-service-name: ${service-name}
+   type: org.cloudfoundry.existing-service
+
